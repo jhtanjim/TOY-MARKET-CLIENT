@@ -51,7 +51,7 @@ const Navbar = () => {
                     </div>
                     <Link to='/' className="btn btn-ghost normal-case text-xl">
 
-                        <h1>Khelnar Dokan</h1>
+                        <h1>khelnar Dokan</h1>
                     </Link>
                 </div>
                 <div className="navbar-center hidden lg:flex">
