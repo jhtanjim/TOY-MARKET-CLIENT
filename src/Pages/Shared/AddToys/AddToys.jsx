@@ -1,4 +1,5 @@
 import React from 'react';
+import Swal from 'sweetalert2'
 
 const AddToys = () => {
 
@@ -24,6 +25,32 @@ const AddToys = () => {
 
         const newtoy = { name, quantity, seller, email, category, details, photo, price, rating }
         console.log(newtoy);
+
+
+
+        // send data to server
+        fetch('http://localhost:5000/toy', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(newtoy)
+
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data);
+                if (data.insertedId) {
+                    Swal.fire({
+                        title: 'Success!',
+                        text: 'Toy Added Succesfully',
+                        icon: 'success',
+                        confirmButtonText: 'Cool'
+                    })
+                }
+            })
+
+
 
     }
 
