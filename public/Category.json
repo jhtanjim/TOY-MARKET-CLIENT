@@ -1,0 +1,98 @@
+[
+    {
+        "id": 1,
+        "picture": "https://i.ibb.co/tMWbxtP/826dc0c54f2614864046d97090d23e74.jpg",
+        "name": "Lamborghini Aventador",
+        "sellerName": "John Doe",
+        "sellerEmail": "johndoe@example.com",
+        "subcategory": "Sports Car",
+        "price": 10000,
+        "rating": 4.5,
+        "quantity": 3,
+        "description": "Description of Sports Car 1"
+    },
+    {
+        "id": 2,
+        "picture": "https://i.ibb.co/zsVyGRW/D-NQ-NP-988405-MLB49865374974-052022-W.jpg",
+        "name": "Ford F-150 Raptor",
+        "sellerName": "Jane Smith",
+        "sellerEmail": "janesmith@example.com",
+        "subcategory": "Truck",
+        "price": 15000,
+        "rating": 4.8,
+        "quantity": 5,
+        "description": "Description of Truck 1"
+    },
+    {
+        "id": 3,
+        "picture": "https://i.ibb.co/VQR38sr/images-2.jpg",
+        "name": "Bruder MAN Fire Engine",
+        "sellerName": "William Wilson",
+        "sellerEmail": "wilson@example.com",
+        "subcategory": "Mini Fire Truck",
+        "price": 5000,
+        "rating": 4.2,
+        "quantity": 2,
+        "description": "Description of Mini Fire Truck 1"
+    },
+    {
+        "id": 4,
+        "picture": "https://i.ibb.co/KhCZspH/Free-Shipping-MSZ-1-32-Alloy-Police-Car-Model-Die-Cast-Vehicles-Pull-Back-Openable-Doors.jpg",
+        "name": "BMW i8 Police Car",
+        "sellerName": "Sarah Johnson",
+        "sellerEmail": "sarahjohnson@example.com",
+        "subcategory": "Mini Police Car",
+        "price": 6000,
+        "rating": 4.1,
+        "quantity": 4,
+        "description": "Description of Mini Police Car 1"
+    },
+    {
+        "id": 5,
+        "picture": "https://i.ibb.co/nC9S9Xy/Ferrari488-GTB11google-1400x.webp",
+        "name": "Ferrari 488 GTB",
+        "sellerName": "Michael Brown",
+        "sellerEmail": "michaelbrown@example.com",
+        "subcategory": "Sports Car",
+        "price": 12000,
+        "rating": 4.3,
+        "quantity": 1,
+        "description": "Description of Sports Car 2"
+    },
+    {
+        "id": 6,
+        "picture": "https://i.ibb.co/Yt62SD7/s-l1600.jpg",
+        "name": "Chevrolet Silverado 1500",
+        "sellerName": "Emily Davis",
+        "sellerEmail": "emilydavis@example.com",
+        "subcategory": "Truck",
+        "price": 18000,
+        "rating": 4.6,
+        "quantity": 6,
+        "description": "Description of Truck 2"
+    },
+    {
+        "id": 7,
+        "picture": "https://i.ibb.co/JknvW4V/92445afb-e80f-4c14-ad47-dd16d816a6cb-77800.jpg",
+        "name": "Matchbox Pierce Velocity Aerial Platform",
+        "sellerName": "David Wilson",
+        "sellerEmail": "davidwilson@example.com",
+        "subcategory": "Mini Fire Truck",
+        "price": 4500,
+        "rating": 4.7,
+        "quantity": 3,
+        "description": "Description of Mini Fire Truck 2"
+    },
+    {
+        "id": 8,
+        "picture": "https://i.ibb.co/mDDPCML/B8-A7-EA7-B-1.jpg",
+        "name": "Dodge Charger Pursuit",
+        "sellerName": "Sophia Thompson",
+        "sellerEmail": "sophiathompson@example.com",
+        "subcategory": "Mini Police Car",
+        "price": 5500,
+        "rating": 4.4,
+        "quantity": 2,
+        "description": "Description of Mini Police Car 2"
+    }
+]
