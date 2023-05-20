@@ -25,7 +25,7 @@ const Navbar = () => {
         {/* jdi user a email takhe tahole logout dekabe */}
         {user?.email ? <>
 
-            <li><Link to='/bookings'>My Toys</Link> </li>
+            <li><Link to='/mytoys'>My Toys</Link> </li>
             <li><Link to='/alltoys'>All Toys</Link> </li>
 
             <li><button onClick={handleLogout}>Log Out</button> </li>

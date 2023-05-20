@@ -7,6 +7,7 @@ import AddToys from "../Pages/Shared/AddToys/AddToys";
 import Updatetoys from "../Pages/Shared/Updatetoys/Updatetoys";
 import AllToys from "../Pages/Shared/AllToys/AllToys";
 import Blogs from "../Pages/Shared/Blogs/Blogs";
+import FourOfournotFound from "../Pages/Shared/fourOfournotFound/FourOfournotFound";
 
 const router = createBrowserRouter([
     {
@@ -46,6 +47,11 @@ const router = createBrowserRouter([
                 path: '/alltoys',
                 element: <AllToys></AllToys>,
                 loader: () => fetch('http://localhost:5000/toy')
+            },
+            {
+                path: '*',
+                element: <FourOfournotFound></FourOfournotFound>
+
             }
 
 

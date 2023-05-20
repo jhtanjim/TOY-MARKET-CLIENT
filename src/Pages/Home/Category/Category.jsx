@@ -10,21 +10,14 @@ const Category = () => {
     const [selectedToy, setSelectedToy] = useState(null);
 
     useEffect(() => {
-        fetch('Category.json')
+        fetch('http://localhost:5000/toyCategory')
             .then((res) => res.json())
             .then((data) => {
                 setToys(data);
             });
     }, []);
 
-    const handleViewDetails = (toy) => {
-        setSelectedToy(toy);
-        setShowModal(true);
-    };
 
-    const handleCloseModal = () => {
-        setShowModal(false);
-    };
 
     return (
         <div className="text-center space-x-3">
