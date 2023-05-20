@@ -54,7 +54,9 @@ const Category = () => {
                                             <p>Rating: {toy.rating}</p>
                                             <div className="card-actions justify-end">
 
-                                                <button className="btn btn-primary">View Details</button>
+                                                <Link >
+                                                    <button className="btn btn-primary">View Details</button>
+                                                </Link>
 
                                             </div>
                                         </div>
@@ -81,7 +83,9 @@ const Category = () => {
                                             <p>Rating: {toy.rating}</p>
                                             <div className="card-actions justify-end">
 
-                                                <button className="btn btn-primary">View Details</button>
+                                                <Link>
+                                                    <button className="btn btn-primary">View Details</button>
+                                                </Link>
 
                                             </div>
                                         </div>
@@ -108,7 +112,9 @@ const Category = () => {
                                             <p>Rating: {toy.rating}</p>
                                             <div className="card-actions justify-end">
 
-                                                <button className="btn btn-primary">View Details</button>
+                                                <Link>
+                                                    <button className="btn btn-primary">View Details</button>
+                                                </Link>
 
                                             </div>
                                         </div>
@@ -135,7 +141,9 @@ const Category = () => {
                                             <p>Rating: {toy.rating}</p>
                                             <div className="card-actions justify-end">
 
-                                                <button className="btn btn-primary">View Details</button>
+                                                <Link>
+                                                    <button className="btn btn-primary">View Details</button>
+                                                </Link>
 
                                             </div>
                                         </div>
