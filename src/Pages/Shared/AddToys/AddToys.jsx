@@ -1,169 +1,172 @@
 import React from 'react';
-import Swal from 'sweetalert2'
+import Swal from 'sweetalert2';
+import { useForm } from 'react-hook-form';
 
 const AddToys = () => {
+    const {
+        register,
+        handleSubmit,
+        formState: { errors },
+    } = useForm();
 
+    const onSubmit = (data) => {
+        // Log form data
+        console.log(data);
 
-
-
-
-
-
-    const handleAddToys = event => {
-
-        event.preventDefault()
-        const form = event.target;
-        const name = form.name.value
-        const quantity = form.quantity.value
-        const seller = form.seller.value
-        const email = form.email.value
-        const category = form.category.value
-        const details = form.details.value
-        const photo = form.photo.value
-        const price = form.price.value
-        const rating = form.rating.value
-
-        const newtoy = { name, quantity, seller, email, category, details, photo, price, rating }
-        console.log(newtoy);
-
-
-
-        // send data to server
-        fetch('http://localhost:5000/toy', {
+        // Send data to server
+        fetch('http://localhost:5000/addtoy', {
             method: 'POST',
             headers: {
-                'content-type': 'application/json'
+                'Content-Type': 'application/json',
             },
-            body: JSON.stringify(newtoy)
-
+            body: JSON.stringify(data),
         })
-            .then(res => res.json())
-            .then(data => {
+            .then((res) => res.json())
+            .then((data) => {
                 console.log(data);
                 if (data.insertedId) {
                     Swal.fire({
                         title: 'Success!',
-                        text: 'Toy Added Succesfully',
+                        text: 'Toy Added Successfully',
                         icon: 'success',
-                        confirmButtonText: 'Cool'
-                    })
+                        confirmButtonText: 'Cool',
+                    });
                 }
             })
-
-
-
-    }
+            .catch((error) => {
+                console.error(error);
+                Swal.fire({
+                    title: 'Error!',
+                    text: 'Failed to add toy',
+                    icon: 'error',
+                    confirmButtonText: 'OK',
+                });
+            });
+    };
 
     return (
-
-        <div className="bg-[#F4F3F0] px-24">
-            <h2 className="text-3xl font-extrabold">Add Toys</h2>
-            <form onSubmit={handleAddToys}>
-                {/* form row */}
-
-                {/* form name and quantity row */}
-                <div className="md:flex " >
-
-                    <div className="form-control md:w-1/2">
-                        <label className="label">
-                            <span className="label-text">Toy Name</span>
-                        </label>
-                        <label className="input-group">
-
-                            <input type="text" name="name" placeholder="Toy Name" className="input input-bordered w-full" />
-                        </label>
-                    </div>
-                    <div className="form-control ml-4 md:w-1/2">
-                        <label className="label">
-                            <span className="label-text">Available Quantity</span>
-                        </label>
-                        <label className="input-group">
-
-                            <input type="text" name="quantity" placeholder="Available Quantity" className="input input-bordered w-full" />
-                        </label>
-                    </div>
-                </div>
-                {/* form  suuplier row */}
-                <div className="md:flex mb-8" >
-
-                    <div className="form-control md:w-1/2">
-                        <label className="label">
-                            <span className="label-text">seller Name</span>
-                        </label>
-                        <label className="input-group">
-
-                            <input type="text" name="seller" placeholder="seller" className="input input-bordered w-full" />
-                        </label>
-                    </div>
-                    <div className="form-control md:w-1/2">
-                        <label className="label">
-                            <span className="label-text">seller Email</span>
-                        </label>
-                        <label className="input-group">
-
-                            <input type="email" name="email" placeholder="Seller Email" className="input input-bordered w-full" />
-                        </label>
-                    </div>
-
-                </div>
-                {/* form  category and detailsrow */}
-                <div className="md:flex mb-8" >
-
-                    <div className="form-control md:w-1/2">
-                        <label className="label">
-                            <span className="label-text">Category</span>
-                        </label>
-                        <label className="input-group">
-
-                            <input type="text" name="category" placeholder="Category" className="input input-bordered w-full" />
-                        </label>
-                    </div>
-                    <div className="form-control ml-4 md:w-1/2">
-                        <label className="label">
-                            <span className="label-text">Details</span>
-                        </label>
-                        <label className="input-group">
-
-                            <input type="text" name="details" placeholder="Details" className="input input-bordered w-full" />
-                        </label>
-                    </div>
-                </div>
-                {/* form  photo url row */}
-                <div className="mb-8" >
-
-                    <div className="form-control w-full">
-                        <label className="label">
-                            <span className="label-text">Photo Url</span>
-                        </label>
-                        <label className="input-group">
-
-                            <input type="text" name="photo" placeholder="photo url" className="input input-bordered w-full" />
-                        </label>
-                    </div>
-
-                    <div className="md:flex mb-8" >
-                        <div className="form-control w-full">
-                            <label className="label">
-                                <span className="label-text">Price</span>
-                            </label>
-                            <label className="input-group">
-
-                                <input type="number" name="price" placeholder="price" className="input input-bordered w-full" />
-                            </label>
-                        </div>
-                        <div className="form-control w-full">
-                            <label className="label">
-                                <span className="label-text">Rating</span>
-                            </label>
-                            <label className="input-group">
-
-                                <input type="number" name="rating" placeholder="rating" className="input input-bordered w-full" />
-                            </label>
-                        </div>
-                    </div>
+        <div className="bg-gray-100 px-4 py-8">
+            <h2 className="text-3xl font-bold text-center mb-8">Add Toys</h2>
+            <form onSubmit={handleSubmit(onSubmit)} className="max-w-md mx-auto">
+                <div className="mb-6">
+                    <label className="block font-medium mb-1" htmlFor="name">
+                        Toy Name
+                    </label>
+                    <input
+                        type="text"
+                        {...register('name', { required: true })}
+                        placeholder="Toy Name"
+                        className="w-full px-3 py-2 border rounded"
+                    />
+                    {errors.name && <span className="text-red-500">This field is required</span>}
                 </div>
 
-                <input className="btn btn-block" type="submit" value="Add Toy" />
+                <div className="mb-6">
+                    <label className="block font-medium mb-1" htmlFor="quantity">
+                        Available Quantity
+                    </label>
+                    <input
+                        type="number"
+                        {...register('quantity', { required: true })}
+                        placeholder="Available Quantity"
+                        className="w-full px-3 py-2 border rounded"
+                    />
+                    {errors.quantity && <span className="text-red-500">This field is required</span>}
+                </div>
+
+                <div className="mb-6">
+                    <label className="block font-medium mb-1" htmlFor="seller">
+                        Seller Name
+                    </label>
+                    <input
+                        type="text"
+                        {...register('seller', { required: true })}
+                        placeholder="Seller Name"
+                        className="w-full px-3 py-2 border rounded"
+                    />
+                    {errors.seller && <span className="text-red-500">This field is required</span>}
+                </div>
+
+                <div className="mb-6">
+                    <label className="block font-medium mb-1" htmlFor="email">
+                        Seller Email
+                    </label>
+                    <input
+                        type="email"
+                        {...register('email', { required: true })}
+                        placeholder="Seller Email"
+                        className="w-full px-3 py-2 border rounded"
+                    />
+                    {errors.email && <span className="text-red-500">This field is required</span>}
+                </div>
+
+                <div className="mb-6">
+                    <label className="block font-medium mb-1" htmlFor="category">
+                        Category
+                    </label>
+                    <select
+                        {...register('category', { required: true })}
+                        className="w-full px-3 py-2 border rounded"
+                    >
+                        <option value="sports-car">Sports Car</option>
+                        <option value="truck">Truck</option>
+                        <option value="mini-fire-truck">Mini Fire Truck</option>
+                        <option value="mini-police-car">Mini Police Car</option>
+                    </select>
+                    {errors.category && <span className="text-red-500">This field is required</span>}
+                </div>
+
+                <div className="mb-6">
+                    <label className="block font-medium mb-1" htmlFor="details">
+                        Details
+                    </label>
+                    <input
+                        type="text"
+                        {...register('details')}
+                        placeholder="Details"
+                        className="w-full px-3 py-2 border rounded"
+                    />
+                </div>
+
+                <div className="mb-6">
+                    <label className="block font-medium mb-1" htmlFor="photo">
+                        Photo URL
+                    </label>
+                    <input
+                        type="text"
+                        {...register('photo')}
+                        placeholder="Photo URL"
+                        className="w-full px-3 py-2 border rounded"
+                    />
+                </div>
+
+                <div className="mb-6">
+                    <label className="block font-medium mb-1" htmlFor="price">
+                        Price
+                    </label>
+                    <input
+                        type="number"
+                        {...register('price')}
+                        placeholder="Price"
+                        className="w-full px-3 py-2 border rounded"
+                    />
+                </div>
+
+                <div className="mb-6">
+                    <label className="block font-medium mb-1" htmlFor="rating">
+                        Rating (1-5)
+                    </label>
+                    <input
+                        type="number"
+                        {...register('rating', { min: 1, max: 5 })}
+                        placeholder="Rating should be 1-5"
+                        className="w-full px-3 py-2 border rounded"
+                    />
+                </div>
+
+                <button type="submit" className="w-full bg-blue-500 text-white font-bold py-2 rounded">
+                    Add Toy
+                </button>
             </form>
         </div>
     );

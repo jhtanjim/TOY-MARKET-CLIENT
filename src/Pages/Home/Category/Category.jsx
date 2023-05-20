@@ -2,12 +2,12 @@ import React, { useEffect, useState } from 'react';
 import 'react-tabs/style/react-tabs.css';
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import 'react-tabs/style/react-tabs.css';
-import { Modal, Button } from 'react-bootstrap';
+
+import { Link } from 'react-router-dom';
 
 const Category = () => {
     const [toys, setToys] = useState([]);
-    const [showModal, setShowModal] = useState(false);
-    const [selectedToy, setSelectedToy] = useState(null);
+
 
     useEffect(() => {
         fetch('http://localhost:5000/toyCategory')
@@ -53,7 +53,9 @@ const Category = () => {
                                             <p>${toy.price}</p>
                                             <p>Rating: {toy.rating}</p>
                                             <div className="card-actions justify-end">
+
                                                 <button className="btn btn-primary">View Details</button>
+
                                             </div>
                                         </div>
                                     </div>
@@ -78,7 +80,9 @@ const Category = () => {
                                             <p>${toy.price}</p>
                                             <p>Rating: {toy.rating}</p>
                                             <div className="card-actions justify-end">
+
                                                 <button className="btn btn-primary">View Details</button>
+
                                             </div>
                                         </div>
                                     </div>
@@ -103,7 +107,9 @@ const Category = () => {
                                             <p>${toy.price}</p>
                                             <p>Rating: {toy.rating}</p>
                                             <div className="card-actions justify-end">
+
                                                 <button className="btn btn-primary">View Details</button>
+
                                             </div>
                                         </div>
                                     </div>
@@ -128,7 +134,9 @@ const Category = () => {
                                             <p>${toy.price}</p>
                                             <p>Rating: {toy.rating}</p>
                                             <div className="card-actions justify-end">
+
                                                 <button className="btn btn-primary">View Details</button>
+
                                             </div>
                                         </div>
                                     </div>

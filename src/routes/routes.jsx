@@ -8,6 +8,7 @@ import Updatetoys from "../Pages/Shared/Updatetoys/Updatetoys";
 import AllToys from "../Pages/Shared/AllToys/AllToys";
 import Blogs from "../Pages/Shared/Blogs/Blogs";
 import FourOfournotFound from "../Pages/Shared/fourOfournotFound/FourOfournotFound";
+import ViewDetails from "../Pages/ViewDetails/ViewDetails";
 
 const router = createBrowserRouter([
     {
@@ -48,6 +49,25 @@ const router = createBrowserRouter([
                 element: <AllToys></AllToys>,
                 loader: () => fetch('http://localhost:5000/toy')
             },
+
+            {
+                path: '/viewdetails/:id',
+                element: <ViewDetails></ViewDetails>,
+
+
+
+
+
+
+
+
+
+            },
+
+
+
+
+            // 404 
             {
                 path: '*',
                 element: <FourOfournotFound></FourOfournotFound>
