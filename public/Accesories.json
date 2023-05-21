@@ -1,0 +1,32 @@
+[
+    {
+        "picture": "https://example.com/track.jpg",
+        "name": "Race Track Set",
+        "description": "Create thrilling racing circuits with this versatile race track set."
+    },
+    {
+        "picture": "https://example.com/ramp.jpg",
+        "name": "Stunt Ramp",
+        "description": "Launch your toy cars into the air and perform jaw-dropping stunts with this high-flying ramp."
+    },
+    {
+        "picture": "https://example.com/spoiler.jpg",
+        "name": "Car Spoiler Kit",
+        "description": "Customize your toy car's look and improve its aerodynamics with this sleek car spoiler kit."
+    },
+    {
+        "picture": "https://example.com/extraparts.jpg",
+        "name": "Extra Parts Pack",
+        "description": "Expand your toy car collection with additional parts, including wheels, axles, and body components."
+    },
+    {
+        "picture": "https://example.com/launcher.jpg",
+        "name": "Ultimate Launcher",
+        "description": "Boost your toy cars to maximum speed with this powerful and adjustable launcher."
+    },
+    {
+        "picture": "https://example.com/trackexpansion.jpg",
+        "name": "Track Expansion Pack",
+        "description": "Extend your existing race track with this expansion pack, featuring extra curves and intersections."
+    }
+]

@@ -7,11 +7,12 @@ import AddToys from "../Pages/Shared/AddToys/AddToys";
 import Updatetoys from "../Pages/Shared/Updatetoys/Updatetoys";
 import AllToys from "../Pages/Shared/AllToys/AllToys";
 import Blogs from "../Pages/Shared/Blogs/Blogs";
-import FourOfournotFound from "../Pages/Shared/fourOfournotFound/FourOfournotFound";
+
 import ViewDetails from "../Pages/ViewDetails/ViewDetails";
 import MyToys from "../Pages/Shared/MyToys/MyToys";
 import PrivateRoutes from "./PrivateRoutes";
 import Update from "../Pages/Shared/Update/Update";
+import NotFound from "../Pages/Shared/NotFound/NotFound";
 
 const router = createBrowserRouter([
     {
@@ -80,9 +81,9 @@ const router = createBrowserRouter([
             // 404 
             {
                 path: '*',
-                element: <FourOfournotFound></FourOfournotFound>
-
+                element: <NotFound />
             },
+
             {
                 path: '/mytoys',
                 element: <MyToys></MyToys>

@@ -1,19 +1,19 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const Footer = () => {
     return (
         <div>
             <footer className="footer p-10 bg-base-200 text-base-content">
                 <div>
-                    <h2>Khelnar ddokan</h2>
-                    <p>ACME Industries Ltd.<br />Providing reliable tech since 1992</p>
+                    <h2 className='text-xl font-bold'>Khelnar Dokan</h2>
+                    <p>Khelnar Dokan, your ultimate destination for toy  <br /> cars and more! We are passionate about providing a wide range br of toy cars</p>
                 </div>
                 <div>
-                    <span className="footer-title">Services</span>
-                    <a className="link link-hover">Branding</a>
-                    <a className="link link-hover">Design</a>
-                    <a className="link link-hover">Marketing</a>
-                    <a className="link link-hover">Advertisement</a>
+                    <Link to='/mytoys'>My Toys</Link>
+                    <Link to='/alltoy'>All Toys</Link>
+                    <Link to='/addtoys'>Add Toys</Link>
+                    <Link to='/login'>Login</Link>
                 </div>
                 <div>
                     <span className="footer-title">Company</span>
