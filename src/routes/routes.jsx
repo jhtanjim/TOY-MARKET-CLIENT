@@ -34,12 +34,15 @@ const router = createBrowserRouter([
             },
             {
                 path: '/addtoys',
-                element: <AddToys></AddToys>
+                element: <PrivateRoutes>
+                    <AddToys></AddToys>
+                </PrivateRoutes>
 
             },
             {
                 path: '/updatetoys',
                 element: <Updatetoys></Updatetoys>
+
 
             },
             ,
@@ -70,13 +73,7 @@ const router = createBrowserRouter([
                     <MyToys></MyToys>
                 </PrivateRoutes>,
             },
-            {
-                path: '/update/:id',
-                element: <Update></Update>,
-                loader: ({ params }) => { console.log(params.id); return fetch(`http://localhost:5000/toy/${params.id}`) }
 
-
-            },
 
             // 404 
             {
@@ -84,11 +81,6 @@ const router = createBrowserRouter([
                 element: <NotFound />
             },
 
-            {
-                path: '/mytoys',
-                element: <MyToys></MyToys>
-
-            }
 
 
         ],
