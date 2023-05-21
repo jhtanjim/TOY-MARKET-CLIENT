@@ -2,6 +2,7 @@ import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../../Provider/AuthProvider';
 import { OverlayTrigger, Tooltip } from 'react-bootstrap';
+
 const Navbar = () => {
 
 
@@ -26,7 +27,7 @@ const Navbar = () => {
         {user?.email ? <>
 
             <li><Link to='/mytoys'>My Toys</Link> </li>
-            <li><Link to='/alltoys'>All Toys</Link> </li>
+            <li><Link to='/alltoy'>All Toys</Link> </li>
             <li><Link to='/addtoys'>Add Toys</Link> </li>
 
             <li><button onClick={handleLogout}>Log Out</button> </li>
@@ -41,7 +42,7 @@ const Navbar = () => {
     </>
 
     return (
-        <div className='sticky'>
+        <div className=''>
             <div className="navbar bg-base-100 h-20 ">
                 <div className="navbar-start">
                     <div className="dropdown">
@@ -81,5 +82,4 @@ const Navbar = () => {
         </div>
     );
 };
-
 export default Navbar;

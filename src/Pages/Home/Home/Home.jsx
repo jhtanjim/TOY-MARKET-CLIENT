@@ -3,6 +3,7 @@ import Banner from '../Banner/Banner';
 import Category from '../Category/Category';
 import Gallery from '../Gallery/Gallery';
 import About from '../About/About';
+import Accesories from '../Accesories/Accesories';
 
 const Home = () => {
     return (
@@ -25,7 +26,9 @@ const Home = () => {
             </div>
             <div className='max-w-7xl  mx-auto'>
                 <h1 className='text-4xl text-center my-10 font-bold text-teal-900	'>Toy Cars Accesories </h1>
-                <Category></Category>
+
+                <Accesories></Accesories>
+
 
             </div>
 

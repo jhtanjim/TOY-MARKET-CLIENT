@@ -54,7 +54,7 @@ const Category = () => {
                                             <p>Rating: {toy.rating}</p>
                                             <div className="card-actions justify-end">
 
-                                                <Link >
+                                                <Link to={`/toy/${toy._id}`}>
                                                     <button className="btn btn-primary">View Details</button>
                                                 </Link>
 
@@ -83,7 +83,7 @@ const Category = () => {
                                             <p>Rating: {toy.rating}</p>
                                             <div className="card-actions justify-end">
 
-                                                <Link>
+                                                <Link to={`/toy/${toy._id}`}>
                                                     <button className="btn btn-primary">View Details</button>
                                                 </Link>
 
@@ -112,7 +112,7 @@ const Category = () => {
                                             <p>Rating: {toy.rating}</p>
                                             <div className="card-actions justify-end">
 
-                                                <Link>
+                                                <Link to={`/toy/${toy._id}`}>
                                                     <button className="btn btn-primary">View Details</button>
                                                 </Link>
 
@@ -141,7 +141,7 @@ const Category = () => {
                                             <p>Rating: {toy.rating}</p>
                                             <div className="card-actions justify-end">
 
-                                                <Link>
+                                                <Link to={`/toy/${toy._id}`}>
                                                     <button className="btn btn-primary">View Details</button>
                                                 </Link>
 

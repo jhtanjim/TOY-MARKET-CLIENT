@@ -9,6 +9,9 @@ import AllToys from "../Pages/Shared/AllToys/AllToys";
 import Blogs from "../Pages/Shared/Blogs/Blogs";
 import FourOfournotFound from "../Pages/Shared/fourOfournotFound/FourOfournotFound";
 import ViewDetails from "../Pages/ViewDetails/ViewDetails";
+import MyToys from "../Pages/Shared/MyToys/MyToys";
+import PrivateRoutes from "./PrivateRoutes";
+import Update from "../Pages/Shared/Update/Update";
 
 const router = createBrowserRouter([
     {
@@ -45,32 +48,43 @@ const router = createBrowserRouter([
 
             },
             {
-                path: '/alltoys',
+                path: '/alltoy',
                 element: <AllToys></AllToys>,
-                loader: () => fetch('http://localhost:5000/toy')
+                loader: () => fetch('http://localhost:5000/alltoy')
             },
 
             {
-                path: '/viewdetails/:id',
-                element: <ViewDetails></ViewDetails>,
-
-
-                loader: ({ params }) => fetch(`http://localhost:5000/toys/${params.id}`)
-
-
-
-
-
+                path: '/toy/:id',
+                element: <PrivateRoutes><ViewDetails></ViewDetails>
+                </PrivateRoutes>,
+                loader: ({ params }) => { console.log(params.id); return fetch(`http://localhost:5000/toy/${params.id}`) },
 
             },
 
+            {
+                path: '/mytoys',
+                element: <PrivateRoutes>
+
+                    <MyToys></MyToys>
+                </PrivateRoutes>,
+            },
+            {
+                path: '/update/:id',
+                element: <Update></Update>,
+                loader: ({ params }) => { console.log(params.id); return fetch(`http://localhost:5000/toy/${params.id}`) }
 
 
+            },
 
             // 404 
             {
                 path: '*',
                 element: <FourOfournotFound></FourOfournotFound>
+
+            },
+            {
+                path: '/mytoys',
+                element: <MyToys></MyToys>
 
             }
 
