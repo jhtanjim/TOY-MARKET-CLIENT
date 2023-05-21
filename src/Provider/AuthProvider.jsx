@@ -3,7 +3,7 @@ import { GoogleAuthProvider, createUserWithEmailAndPassword, getAuth, onAuthStat
 import app from '../firebase/firebase.config';
 import { redirect } from 'react-router-dom';
 
-export const AuthContext = createContext();
+export const AuthContext = createContext(null);
 const auth = getAuth(app);
 const googleAuthProvider = new GoogleAuthProvider();
 
@@ -34,6 +34,16 @@ const AuthProvider = ({ children }) => {
     const signIn = (email, password) => {
         setLoading(true);
         return signInWithEmailAndPassword(auth, email, password)
+            .then((userCredential) => {
+                // Update the user object with the photo URL
+                const updatedUser = {
+                    ...userCredential.user,
+                    photoURL: userCredential.user.photoURL || '',
+                };
+                setUser(updatedUser);
+                setLoading(false);
+                return updatedUser;
+            })
             .catch((error) => {
                 setLoading(false);
                 throw error;
@@ -47,6 +57,10 @@ const AuthProvider = ({ children }) => {
     const logOut = () => {
         setLoading(true);
         return signOut(auth)
+            .then(() => {
+                setUser(null);
+                setLoading(false);
+            })
             .catch((error) => {
                 setLoading(false);
                 throw error;

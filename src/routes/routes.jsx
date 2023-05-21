@@ -1,4 +1,4 @@
-import { createBrowserRouter } from "react-router-dom";
+import { createBrowserRouter, useRouteLoaderData } from "react-router-dom";
 import Main from "../Layout/Main";
 import Home from "../Pages/Home/Home/Home";
 import SignUp from "../Pages/SignUp/SignUp";
@@ -57,7 +57,8 @@ const router = createBrowserRouter([
                 path: '/toy/:id',
                 element: <PrivateRoutes><ViewDetails></ViewDetails>
                 </PrivateRoutes>,
-                loader: ({ params }) => { console.log(params.id); return fetch(`http://localhost:5000/toy/${params.id}`) },
+                loader: ({ params }) => fetch(`http://localhost:5000/toyCategory/${params.id}`)
+                ,
 
             },
 
