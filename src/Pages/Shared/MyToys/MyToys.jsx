@@ -6,7 +6,7 @@ const MyToys = () => {
     const { user } = useContext(AuthContext);
     const [toys, setToys] = useState([]);
     const [sortBy, setSortBy] = useState('asc');
-    const url = `http://localhost:5000/alltoy/${user?.email}`;
+    const url = `https://toy-store-server-one.vercel.app/alltoy/${user?.email}`;
 
     useEffect(() => {
         const fetchToys = async () => {

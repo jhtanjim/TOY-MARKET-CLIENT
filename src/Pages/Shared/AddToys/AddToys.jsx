@@ -14,7 +14,7 @@ const AddToys = () => {
         console.log(data);
 
         // Send data to server
-        fetch('http://localhost:5000/addtoy', {
+        fetch('https://toy-store-server-one.vercel.app/addtoy', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',

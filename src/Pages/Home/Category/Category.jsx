@@ -10,7 +10,7 @@ const Category = () => {
 
 
     useEffect(() => {
-        fetch('http://localhost:5000/toyCategory')
+        fetch('https://toy-store-server-one.vercel.app/toyCategory')
             .then((res) => res.json())
             .then((data) => {
                 setToys(data);

@@ -22,7 +22,7 @@ const MyToysCard = ({ toy }) => {
         }).then((result) => {
             if (result.isConfirmed) {
 
-                fetch(`http://localhost:5000/alltoy/${_id}`, {
+                fetch(`https://toy-store-server-one.vercel.app/alltoy/${_id}`, {
                     method: 'DELETE',
                 })
 
@@ -57,7 +57,7 @@ const MyToysCard = ({ toy }) => {
 
     // const handleDelete = (_id) => {
     //     console.log('Delete', _id);
-    //     fetch(`http://localhost:5000/alltoy/${_id}`, {
+    //     fetch(`https://toy-store-server-one.vercel.app/alltoy/${_id}`, {
     //         method: 'DELETE',
     //     })
     //         .then((res) => res.json())

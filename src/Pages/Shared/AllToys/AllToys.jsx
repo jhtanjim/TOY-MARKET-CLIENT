@@ -7,7 +7,7 @@ const AllToys = () => {
     const [limit, setLimit] = useState(20);
 
     useEffect(() => {
-        fetch(`http://localhost:5000/alltoy?limit=${limit}`)
+        fetch(`https://toy-store-server-one.vercel.app/alltoy?limit=${limit}`)
             .then(res => res.json())
             .then(data => {
                 setToys(data);
