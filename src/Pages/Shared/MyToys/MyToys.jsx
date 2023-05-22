@@ -26,6 +26,21 @@ const MyToys = () => {
         setSortBy(event.target.value);
     };
 
+    // Function to sort toys based on price
+    const sortToys = (toys, sortBy) => {
+        const sortedToys = [...toys];
+
+        if (sortBy === 'asc') {
+            sortedToys.sort((a, b) => a.price - b.price);
+        } else if (sortBy === 'desc') {
+            sortedToys.sort((a, b) => b.price - a.price);
+        }
+
+        return sortedToys;
+    };
+
+    const sortedToys = sortToys(toys, sortBy);
+
     return (
         <div>
             <div className="mb-4">
@@ -39,7 +54,7 @@ const MyToys = () => {
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                {toys.map((toy) => (
+                {sortedToys.map((toy) => (
                     <MyToysCard key={toy._id} toy={toy} />
                 ))}
             </div>

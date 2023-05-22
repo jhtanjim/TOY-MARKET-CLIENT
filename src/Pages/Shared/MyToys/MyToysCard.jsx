@@ -81,11 +81,11 @@ const MyToysCard = ({ toy }) => {
                     <div className="card-body">
                         <h2 className="card-title">{toy.name}</h2>
                         <p>${price}</p>
-                        <p>${quantity}</p>
+                        <p>{quantity}</p>
                         <p>Rating: {details}</p>
                         <div className="card-actions justify-end">
                             <div className="d-flex">
-                                <Link to={`/update/alltoy/${_id}`}>
+                                <Link to={`/update/${_id}`}>
 
                                     <button className="btn btn-primary">Update</button>
                                 </Link>

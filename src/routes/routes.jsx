@@ -1,18 +1,17 @@
-import { createBrowserRouter, useRouteLoaderData } from "react-router-dom";
+import { createBrowserRouter } from "react-router-dom";
 import Main from "../Layout/Main";
 import Home from "../Pages/Home/Home/Home";
 import SignUp from "../Pages/SignUp/SignUp";
 import Login from "../Pages/Login/Login";
 import AddToys from "../Pages/Shared/AddToys/AddToys";
-import Updatetoys from "../Pages/Shared/Updatetoys/Updatetoys";
 import AllToys from "../Pages/Shared/AllToys/AllToys";
 import Blogs from "../Pages/Shared/Blogs/Blogs";
 
 import ViewDetails from "../Pages/ViewDetails/ViewDetails";
 import MyToys from "../Pages/Shared/MyToys/MyToys";
 import PrivateRoutes from "./PrivateRoutes";
-import Update from "../Pages/Shared/Update/Update";
 import NotFound from "../Pages/Shared/NotFound/NotFound";
+import Update from "../Pages/Shared/Update/Update";
 
 const router = createBrowserRouter([
     {
@@ -40,10 +39,16 @@ const router = createBrowserRouter([
 
             },
             {
-                path: '/updatetoys',
-                element: <Updatetoys></Updatetoys>
+                path: '/mytoys',
+                element: <PrivateRoutes>
 
-
+                    <MyToys></MyToys>
+                </PrivateRoutes>,
+            },
+            {
+                path: '/update/:id',
+                element: <Update></Update>,
+                loader: ({ params }) => fetch(`http://localhost:5000/alltoy/${params.id}`)
             },
             ,
             {
@@ -66,13 +71,7 @@ const router = createBrowserRouter([
 
             },
 
-            {
-                path: '/mytoys',
-                element: <PrivateRoutes>
 
-                    <MyToys></MyToys>
-                </PrivateRoutes>,
-            },
 
 
             // 404 

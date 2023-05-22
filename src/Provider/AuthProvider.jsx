@@ -1,11 +1,14 @@
 import React, { createContext, useEffect, useState } from 'react';
 import { GoogleAuthProvider, createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile } from "firebase/auth";
+// import { useHistory } from 'react-router-dom'; // Import useHistory
+
 import app from '../firebase/firebase.config';
-import { redirect } from 'react-router-dom';
+// import { redirect } from 'react-router-dom';
 
 export const AuthContext = createContext(null);
 const auth = getAuth(app);
 const googleAuthProvider = new GoogleAuthProvider();
+// const history = useHistory();
 
 const AuthProvider = ({ children }) => {
     const [user, setUser] = useState(null);
@@ -52,7 +55,21 @@ const AuthProvider = ({ children }) => {
 
     const signInWithGoogle = () => {
         return signInWithPopup(auth, googleAuthProvider)
+            .then((userCredential) => {
+                const updatedUser = {
+                    ...userCredential.user,
+                    photoURL: userCredential.user.photoURL || '',
+                };
+                setUser(updatedUser);
+                setLoading(false);
+                history.push('/home'); // Redirect to the home page
+            })
+            .catch((error) => {
+                setLoading(false);
+                throw error;
+            });
     };
+
 
     const logOut = () => {
         setLoading(true);
