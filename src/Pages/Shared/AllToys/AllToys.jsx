@@ -15,11 +15,11 @@ const AllToys = () => {
     }, [limit]);
 
     const handleSearch = () => {
-        const filteredToys = toys.filter(toy =>
-            toy.name.toLowerCase().includes(searchInput.toLowerCase())
-        );
-        setToys(filteredToys);
-        setLimit(20); // Reset the limit to show default number of results
+        fetch(`https://toy-store-server-one.vercel.app/alltoy?limit=${limit}&name=${encodeURIComponent(searchInput)}`)
+            .then(res => res.json())
+            .then(data => {
+                setToys(data);
+            });
     };
 
     return (
