@@ -3,16 +3,32 @@ import { AuthContext } from '../../../Provider/AuthProvider';
 import MyToysCard from './MyToysCard';
 
 const MyToys = () => {
+    // Retrieve the user from the AuthContext
     const { user } = useContext(AuthContext);
+
+    // Set up state variables
     const [toys, setToys] = useState([]);
     const [sortBy, setSortBy] = useState('asc');
+
+    // Construct the API URL based on the user's email
     const url = `https://toy-store-server-one.vercel.app/alltoydata/${user?.email}`;
 
+    // Fetch the toys from the API and update the state
     useEffect(() => {
         const fetchToys = async () => {
             try {
-                const response = await fetch(`${url}?sort=price:${sortBy}`);
-                const data = await response.json();
+                const response = await fetch(`${url}`);
+                let data = await response.json();
+
+                // Sort the toys based on the selected sort option
+                data.sort((a, b) => {
+                    if (sortBy === 'asc') {
+                        return a.price - b.price;
+                    } else {
+                        return b.price - a.price;
+                    }
+                });
+
                 setToys(data);
             } catch (error) {
                 console.log('Error fetching toys:', error);
@@ -22,10 +38,12 @@ const MyToys = () => {
         fetchToys();
     }, [url, sortBy]);
 
+    // Handle the sort change event
     const handleSortChange = (event) => {
         setSortBy(event.target.value);
     };
 
+    // Render the component
     return (
         <div>
             <div className="mb-4">
