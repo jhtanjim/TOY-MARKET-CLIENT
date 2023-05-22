@@ -3,6 +3,7 @@ import { GoogleAuthProvider, createUserWithEmailAndPassword, getAuth, onAuthStat
 // import { useHistory } from 'react-router-dom'; // Import useHistory
 
 import app from '../firebase/firebase.config';
+import { Spinner } from 'react-bootstrap';
 // import { redirect } from 'react-router-dom';
 
 export const AuthContext = createContext(null);
@@ -107,7 +108,16 @@ const AuthProvider = ({ children }) => {
 
     return (
         <AuthContext.Provider value={authInfo}>
-            {children}
+            {loading ? (
+                <div className="d-flex justify-content-center mt-5">
+                    <Spinner className=" spinner-border text-success" role="status">
+                        <span className="visually-hidden">Loading...</span>
+                    </Spinner>
+                </div>
+
+            ) : (
+                children // Remove curly braces
+            )}
         </AuthContext.Provider>
     );
 };
