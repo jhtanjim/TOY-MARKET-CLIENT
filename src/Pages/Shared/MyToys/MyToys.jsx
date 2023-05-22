@@ -6,7 +6,7 @@ const MyToys = () => {
     const { user } = useContext(AuthContext);
     const [toys, setToys] = useState([]);
     const [sortBy, setSortBy] = useState('asc');
-    const url = `https://toy-store-server-one.vercel.app/alltoy/${user?.email}`;
+    const url = `https://toy-store-server-one.vercel.app/alltoydata/${user?.email}`;
 
     useEffect(() => {
         const fetchToys = async () => {
@@ -26,21 +26,6 @@ const MyToys = () => {
         setSortBy(event.target.value);
     };
 
-    // Function to sort toys based on price
-    const sortToys = (toys, sortBy) => {
-        const sortedToys = [...toys];
-
-        if (sortBy === 'asc') {
-            sortedToys.sort((a, b) => a.price - b.price);
-        } else if (sortBy === 'desc') {
-            sortedToys.sort((a, b) => b.price - a.price);
-        }
-
-        return sortedToys;
-    };
-
-    const sortedToys = sortToys(toys, sortBy);
-
     return (
         <div>
             <div className="mb-4">
@@ -54,7 +39,7 @@ const MyToys = () => {
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                {sortedToys.map((toy) => (
+                {toys.map((toy) => (
                     <MyToysCard key={toy._id} toy={toy} />
                 ))}
             </div>
