@@ -10,7 +10,7 @@ const Banner = () => {
 
 
     return (
-        <div className="carousel w-full h-">
+        <div className="carousel w-full ">
             <AwesomeSlider animation="cubeAnimation" className="slider">
                 <div className="bg-black">
                     <img
